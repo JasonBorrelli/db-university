@@ -14,13 +14,17 @@ WHERE cfu > 10;
 
 SELECT *
 FROM students 
-WHERE (date_of_birth) < "1996-10-13";
+WHERE date_of_birth < "1996-10-13";
 
 
 
 /* Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di
 laurea (286) */
 
+SELECT *
+FROM courses
+WHERE period LIKE "I semestre"
+AND YEAR = 1;
 
 
 
