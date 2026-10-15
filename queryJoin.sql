@@ -76,3 +76,13 @@ WHERE departments.name = "Dipartimento di Matematica";
 per ogni esame, stampando anche il voto massimo. Successivamente,
 filtrare i tentativi con voto minimo 18.*/
 
+SELECT students.name AS student_name,
+students.surname AS student_surname,
+exam_student.exam_id AS exam_id,
+COUNT(*) AS numero_tentativi, 
+MAX(vote) AS voto_massimo
+FROM exam_student
+JOIN students
+ON exam_student.student_id = students.id
+GROUP BY students.id,students.name, students.surname, exam_student.exam_id 
+HAVING MAX(exam_student.vote) >= 18;
